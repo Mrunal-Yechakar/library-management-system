@@ -40,4 +40,24 @@ describe('Library Management System', () => {
         expect(() => library.returnBook('123456')).toThrowError('Book was not borrowed');
     });
 
+  it('view all available books in the library', () => {
+        const library = new Library();
+        // Adding multiple books to the library
+        library.addBook('789012', 'Introduction to Machine Learning', 'Bharat Yechakar', 2023);
+        library.addBook('345678', 'Deep Learning Essentials', 'Janhavi Dalvi', 2022);
+    
+        // Viewing all available books
+        const books = library.viewAvailableBooks();
+    
+        // Assertions to ensure correctness
+        expect(books.length).toBe(3); // Verify that three books are available
+        expect(books[0].title).toBe('Advanced TypeScript');
+        expect(books[0].author).toBe('Mrunal Bharat Yechakar');
+        expect(books[1].title).toBe('Introduction to Machine Learning');
+        expect(books[1].author).toBe('Bharat Yechakar');
+        expect(books[2].title).toBe('Deep Learning Essentials');
+        expect(books[2].author).toBe('Janhavi Dalavi');
+    });
+   
+
 });
