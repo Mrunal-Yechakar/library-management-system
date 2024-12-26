@@ -10,6 +10,12 @@ describe('Library Management System', () => {
         expect(books[0].title).toBe('Advanced TypeScript');
         expect(books[0].author).toBe('Mrunal Bharat Yechakar');
     });
-
+    it('borrows a book from the library', () => {
+        const library = new Library();
+        library.addBook('123456', 'Advanced TypeScript', 'Mrunal Bharat Yechakar', 2024);
+        library.borrowBook('123456');
+        const books = library.viewAvailableBooks();
+        expect(books.length).toBe(0);
+    });
 
 });
