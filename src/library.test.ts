@@ -34,4 +34,10 @@ describe('Library Management System', () => {
         expect(books[0].available).toBe(true);
     });
 
+    it('throws an error if trying to return a book that was not borrowed', () => {
+        const library = new Library();
+        library.addBook('123456', 'Advanced TypeScript', 'Mrunal Bharat Yechakar', 2024);
+        expect(() => library.returnBook('123456')).toThrowError('Book was not borrowed');
+    });
+
 });
