@@ -3,6 +3,7 @@ export class Library {
 
     // Adds a new book to the library
     addBook(isbn: string, title: string, author: string, year: number): void {
+        this.books.push({ isbn, title, author, year, available: true });
 
     }
 
