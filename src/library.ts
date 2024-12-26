@@ -8,7 +8,9 @@ export class Library {
 
     // Borrows a book (marks it as unavailable)
     borrowBook(isbn: string): void {
-        
+        const book = this.books.find((b) => b.isbn === isbn && b.available);
+        if (!book) throw new Error('Book not available');
+        book.available = false;
     }
 
     // Views all available books
