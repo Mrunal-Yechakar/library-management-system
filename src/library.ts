@@ -16,7 +16,9 @@ export class Library {
     
     // Returns a borrowed book (marks it as available)
     returnBook(isbn: string): void {
-        
+        const book = this.books.find((b) => b.isbn === isbn && !b.available);
+        if (!book) throw new Error('Book was not borrowed');
+        book.available = true;
     }
 
     // Views all available books
