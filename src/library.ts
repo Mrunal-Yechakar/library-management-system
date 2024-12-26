@@ -13,6 +13,12 @@ export class Library {
         book.available = false;
     }
 
+    
+    // Returns a borrowed book (marks it as available)
+    returnBook(isbn: string): void {
+        
+    }
+
     // Views all available books
     viewAvailableBooks() {
         return this.books.filter((book) => book.available);
